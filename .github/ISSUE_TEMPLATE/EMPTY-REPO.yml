@@ -13,7 +13,6 @@ body:
       value: 
         Formulário padrão para criação de repositório no Github NTTData
   - type: input
-    id: acronym
     attributes:
       label: ">>Sigla do Produto<<"
       description: Sigla do Produto
@@ -21,7 +20,6 @@ body:
     validations:
       required: true 
   - type: input
-    id: acronym
     attributes:
       label: ">>Nome da Aplicação<<"
       description: Nome da Aplicação ou Produto
@@ -29,7 +27,6 @@ body:
     validations:
       required: true 
   - type: dropdown
-    id: acronym
     attributes:
       label: ">>Templates<<"
       description: Este repositório é para qual recurso?
