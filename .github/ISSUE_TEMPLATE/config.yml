@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Suporte à Comunidade GitHub
+    url: https://github.com/orgs/community/discussions
+    about: Please ask and answer questions here.
+  - name: GitHub Recompensa de bug de segurança
+    url: https://bounty.github.com/
+    about: Reporte vulnerabilidades de segurança aqui.
