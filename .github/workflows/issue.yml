@@ -1,0 +1,87 @@
+name: Criação de Repositório Automatizado para as Issues
+
+on:
+  issues:
+    types: [opened, reopened]
+
+jobs:
+
+  add-comment:
+    name: Add comment on Issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Acompanhe o setup pelo link: https://github.com/${{github.repsitory}}/actions/runs/${{github.run_id}}
+          reactions: '+1'
+  
+  from-to-json:
+    name: Convert Issue from Json
+    runs-on: ubuntu-latest
+    needs: [add-comment]
+    outputs:
+      payload-parsed: ${{ steps.payload.outputs.json_var }} 
+    steps:
+      - name: Run issue from parser
+        id: parser
+        uses: peter-murray/issue-forms-body-parser@v2.0.0
+        with:
+          issue_id: ${{ github.event.issue.number }}
+          separator: '###'
+          label_marker_start: '>>'
+          label_marker_end: '<<'
+      - name: Set outputs
+        id: payload
+        run: echo ::set-output name=json_var::'${{ steps.parser.outputs.payload }}'
+      - name: Show output 
+        run: echo "${{ toJson(steps.payload.outputs.json_var) }}"
+
+#  create-github-repo:
+#    uses: Digital-Architecture/create-github-repo@v1
+#    needs:
+#      - from-to-json  
+#    with:
+#      payload: ${{ needs.from-to-json.payload-parsed }}
+#      secrets: inherit
+#
+#  add-error-comment:
+#    name: Add error comment
+#    runs-on: ubuntu-latest
+#    if: |
+#      always() && (needs.create-github-repo.result == 'failure')
+#    needs: [create-github-repo]
+#    steps:
+#      - name: Creat comment 
+#        uses: peter-evans/create-or-update-comment@v1
+#        with:
+#          issue-number: ${{ github.event.issue.number }}
+#          body: |
+#            Erro durante a execução da action. Acesse o link para mais detalhes: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+#          reactions: '+1'
+#
+#  auto-closing-issue:
+#    name: Auto-closing issue
+#    runs-on: ubuntu-latest  
+#    if: |
+#      always() && (needs.create-github-repo.result == 'success')
+#    needs: [create-github-repo]
+#    steps:
+#      - name: Create comment
+#        uses: peter-evans/create-or-update-comment@v1
+#        with:
+#          issue-number: ${{ github.issue.number }}
+#          body: |
+#            Sucesso na criação do repositório. Repositório criado em https://github.com/Digital-Architecture/${{needs.create-github-repo.outputs.repo_name}}
+#          reactions: '+1'
+#      
+#      - name: Close issue
+#        id: parser
+#        uses: peter-evans/close-issue@v1
+#        with: 
+#          issue-number: ${{github.event.issue.number}}
+#          comment: Fechando issue automaticamente. 
+#
+#
