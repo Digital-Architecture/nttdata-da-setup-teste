@@ -4,12 +4,14 @@ description: Criação de repositório vazio, sem stack e deploys configurados!
 title: "Criação de repositório vazio"
 labels: ["repositorio","empty-repo"]
 
+assignees:
+ - ${{github.author}}
+
 body:
   - type: markdown
     attributes:
       value: 
         Formulário padrão para criação de repositório no Github NTTData
-
   - type: input
     id: acronym
     attributes:
@@ -18,7 +20,6 @@ body:
       placeholder: DA
     validations:
       required: true 
-
   - type: input
     id: acronym
     attributes:
@@ -27,7 +28,6 @@ body:
       placeholder: nomedaminhaaplicação
     validations:
       required: true 
-
   - type: dropdown
     id: acronym
     attributes:
