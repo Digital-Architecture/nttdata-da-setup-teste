@@ -58,6 +58,7 @@ jobs:
           submodules: true
       - uses: Digital-Architecture/create-repo-actions@v1.1
         with:
+          path: ./.github/actions
           DEPART: 'da'
           APP: 'appteste'
           TEMPLATE: 'nttdata-template-empty-public'
