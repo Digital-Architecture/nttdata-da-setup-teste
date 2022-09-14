@@ -52,7 +52,7 @@ jobs:
           repository: Digital-Architecture/create-repo-actions
           path: ./.github/actions
           ref: 'v1.1'
-          submodule: true
+          submodules: true
 
       - name: Create Repo 
         uses: ./.github/actions
