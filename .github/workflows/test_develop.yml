@@ -49,14 +49,15 @@ jobs:
     #- from-to-json
     steps:
 
-      - name: Create Repo Action 
+      - name: Checkout Github Actions  
         uses: actions/checkout@v2.3.2
         with:
           repository: Digital-Architecture/create-repo-actions
           path: ./.github/actions
           ref: 'v1.1'
-          submodules: true
-      - uses: ./.github/actions
+    
+      - name: Create Repo Action
+        uses: ./.github/actions
         with:
           DEPART: 'da'
           APP: 'appteste'
