@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 GITHUB_CLI=$(which gh)
 
 # AUTHENTICATE GITHUB
