@@ -48,10 +48,8 @@ jobs:
       - name: Checkout repo actions
         uses: actions/checkout@v2
         with:
-          repository: Digital-Architecture/nttdatta-actions-create-repo
-          refs: 'refs/head/main'
+          repository: Digital-Architecture/nttdatta-actions-create-repo@main
           
-
       - name: Create Repo Github 
         uses: ./.github/actions
         id: create-repo
