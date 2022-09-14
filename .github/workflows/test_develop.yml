@@ -56,10 +56,13 @@ jobs:
           path: ./.github/actions
           ref: 'v1.1'
           submodules: true
+      - uses: Digital-Architecture/create-repo-actions@v1.1
+        with:
           DEPART: 'da'
           APP: 'appteste'
           TEMPLATE: 'nttdata-template-empty-public'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 
   #add-error-comment:
   #  name: Add error comment
