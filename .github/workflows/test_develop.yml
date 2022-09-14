@@ -58,7 +58,7 @@ jobs:
           submodules: true
 
       - name: Create Repo 
-        uses: ./.github/actions
+        uses: Digital-Architecture/create-repo-actions@v1.1
         id: create-repo
         with:
           submodules: true
