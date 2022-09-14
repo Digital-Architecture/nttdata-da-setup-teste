@@ -56,9 +56,9 @@ jobs:
           path: ./.github/actions
           ref: 'v1.1'
           submodules: true
-      #    DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
-      #    APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
-      #    TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
+          DEPART: 'da'
+          APP: 'appteste'
+          TEMPLATE: 'nttdata-template-empty-public'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   #add-error-comment:
