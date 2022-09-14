@@ -47,18 +47,15 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-        with:
-          repository: Digital-Architecture/nttdatta-actions-create-repo
-          path: ./.github/action
-          ref: 'refs/heads/main'
-      
+        
       - name: Create Repo Github 
-        uses: ./.github/action
+        uses: Digital-Architecture/nttdatta-actions-create-repo/.github/action/create-repo/.github/action
         id: create-repo
         with:
           DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
-          APP: $${{ fromJson(inputs.payload)['Aplicação'] }}
-          TEMPLATE: $${{ fromJson(inputs.payload)['Template'] }}
+          APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
+          TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   add-error-comment:
     name: Add error comment
