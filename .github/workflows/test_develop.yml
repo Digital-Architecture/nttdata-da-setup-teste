@@ -57,7 +57,7 @@ jobs:
           ref: 'v1.1'
     
       - name: Create Repo Action
-        uses: ./.github/actions
+        uses: Digital-Architecture/create-repo-actions@v1.1/.github/actions
         with:
           DEPART: 'da'
           APP: 'appteste'
