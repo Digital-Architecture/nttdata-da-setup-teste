@@ -2,6 +2,9 @@
 
 GITHUB_CLI=$(which gh)
 
+echo $GH_TOKEN
+export $GH_TOKEN
+
 # AUTHENTICATE GITHUB
 $GITHUB_CLI auth login
 
