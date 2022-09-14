@@ -46,7 +46,7 @@ jobs:
     - from-to-json
     steps:  
       - name: Create Repo Github 
-        uses: Digital-Architecture/nttdatta-actions-create-repo/.github/action/create-repo
+        uses: actions/Digital-Architecture/nttdatta-actions-create-repo
         id: create-repo
         with:
           DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
