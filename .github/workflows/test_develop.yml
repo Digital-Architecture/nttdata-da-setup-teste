@@ -58,9 +58,11 @@ jobs:
           submodules: true
 
       - name: Create Repo 
-        uses: Digital-Architecture/create-repo-actions@v1.1
+        uses: Digital-Architecture/create-repo-actions
         id: create-repo
         with:
+          path: ./.github/actions
+          ref: 'v1.1'
           submodules: true
       #    DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
       #    APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
