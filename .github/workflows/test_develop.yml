@@ -49,19 +49,12 @@ jobs:
     #- from-to-json
     steps:
 
-      - name: Checkout Repo Action 
+      - name: Create Repo Action 
         uses: actions/checkout@v2.3.2
         with:
           repository: Digital-Architecture/create-repo-actions
           path: ./.github/actions
           ref: 'v1.1'
-          submodules: true
-
-      - name: Create Repo 
-        uses: Digital-Architecture/create-repo-actions@v1.1
-        id: create-repo
-        with:
-          path: ./.github/actions
           submodules: true
       #    DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
       #    APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
