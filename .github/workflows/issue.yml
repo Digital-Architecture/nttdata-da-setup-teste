@@ -47,21 +47,21 @@ jobs:
     steps:
 
       - name: Checkout Repo Action 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.2
         with:
           repository: Digital-Architecture/create-repo-actions
           path: ./.github/actions
           ref: 'v1.1'
           submodule: true
 
-      #- name: Create Repo 
-      #  uses: ./.github/actions
-      #  id: create-repo
-      #  with:
-      #    DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
-      #    APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
-      #    TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
-      #    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Create Repo 
+        uses: ./.github/actions
+        id: create-repo
+        with:
+          DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
+          APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
+          TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   add-error-comment:
     name: Add error comment
