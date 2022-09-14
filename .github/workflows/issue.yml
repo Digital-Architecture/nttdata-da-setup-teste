@@ -44,12 +44,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: 
     - from-to-json
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-        
+    steps:  
       - name: Create Repo Github 
-        uses: Digital-Architecture/nttdatta-actions-create-repo/.github/action/create-repo/.github/action
+        uses: Digital-Architecture/nttdatta-actions-create-repo/.github/action/create-repo
         id: create-repo
         with:
           DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
