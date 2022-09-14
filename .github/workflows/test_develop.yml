@@ -57,14 +57,14 @@ jobs:
           ref: 'v1.1'
           submodules: true
 
-      #- name: Create Repo 
-      #  uses: ./.github/actions
-      #  id: create-repo
-      #  with:
+      - name: Create Repo 
+        uses: ./.github/actions
+        id: create-repo
+        with:
       #    DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
       #    APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
       #    TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
-      #    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   #add-error-comment:
   #  name: Add error comment
