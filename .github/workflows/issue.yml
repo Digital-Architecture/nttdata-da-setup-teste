@@ -39,49 +39,61 @@ jobs:
       - name: Show output 
         run: echo "${{ toJson(steps.payload.outputs.json_var) }}"
 
-#  create-github-repo:
-#    uses: Digital-Architecture/create-github-repo@v1
-#    needs:
-#      - from-to-json  
-#    with:
-#      payload: ${{ needs.from-to-json.payload-parsed }}
-#      secrets: inherit
-#
-#  add-error-comment:
-#    name: Add error comment
-#    runs-on: ubuntu-latest
-#    if: |
-#      always() && (needs.create-github-repo.result == 'failure')
-#    needs: [create-github-repo]
-#    steps:
-#      - name: Creat comment 
-#        uses: peter-evans/create-or-update-comment@v1
-#        with:
-#          issue-number: ${{ github.event.issue.number }}
-#          body: |
-#            Erro durante a execução da action. Acesse o link para mais detalhes: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
-#          reactions: '+1'
-#
-#  auto-closing-issue:
-#    name: Auto-closing issue
-#    runs-on: ubuntu-latest  
-#    if: |
-#      always() && (needs.create-github-repo.result == 'success')
-#    needs: [create-github-repo]
-#    steps:
-#      - name: Create comment
-#        uses: peter-evans/create-or-update-comment@v1
-#        with:
-#          issue-number: ${{ github.issue.number }}
-#          body: |
-#            Sucesso na criação do repositório. Repositório criado em https://github.com/Digital-Architecture/${{needs.create-github-repo.outputs.repo_name}}
-#          reactions: '+1'
-#      
-#      - name: Close issue
-#        id: parser
-#        uses: peter-evans/close-issue@v1
-#        with: 
-#          issue-number: ${{github.event.issue.number}}
-#          comment: Fechando issue automaticamente. 
-#
-#
+  create-github-repo:
+    name: Build GIT Repository
+    runs-on: ubuntu-latest
+    needs: 
+    - from-to-json
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          repository: Digital-Architecture/nttdatta-actions-create-repo
+          path: ./.github/action
+          ref: 'refs/heads/v1'
+      
+      - name: Create Repo Github 
+        uses: ./.github/action
+        id: create-repo
+        with:
+          DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
+          APP: $${{ fromJson(inputs.payload)['Aplicação'] }}
+          TEMPLATE: $${{ fromJson(inputs.payload)['Template'] }}
+
+  add-error-comment:
+    name: Add error comment
+    runs-on: ubuntu-latest
+    if: |
+      always() && (needs.create-github-repo.result == 'failure')
+    needs: [create-github-repo]
+    steps:
+      - name: Creat comment 
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Erro durante a execução da action. Acesse o link para mais detalhes: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+          reactions: '+1'
+
+  auto-closing-issue:
+    name: Auto-closing issue
+    runs-on: ubuntu-latest  
+    if: |
+      always() && (needs.create-github-repo.result == 'success')
+    needs: [create-github-repo]
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.issue.number }}
+          body: |
+            Sucesso na criação do repositório. Repositório criado em https://github.com/Digital-Architecture/${{needs.create-github-repo.outputs.repo_name}}
+          reactions: '+1'
+      
+      - name: Close issue
+        id: parser
+        uses: peter-evans/close-issue@v1
+        with: 
+          issue-number: ${{github.event.issue.number}}
+          comment: Fechando issue automaticamente. 
+
