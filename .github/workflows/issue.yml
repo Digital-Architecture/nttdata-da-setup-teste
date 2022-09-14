@@ -51,6 +51,7 @@ jobs:
           repository: Digital-Architecture/nttdatta-actions-create-repo
           path: './.github/actions'
           submodules: true
+          refs: 'refs/head/v1'
           
       - name: Create Repo Github 
         uses: ./.github/actions
