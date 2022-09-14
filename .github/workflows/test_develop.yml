@@ -61,6 +61,7 @@ jobs:
         uses: ./.github/actions
         id: create-repo
         with:
+          submodules: true
       #    DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
       #    APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
       #    TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
