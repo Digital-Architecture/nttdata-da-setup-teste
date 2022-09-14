@@ -49,6 +49,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: Digital-Architecture/nttdatta-actions-create-repo
+          path: './.github/actions'
+          submodules: true
           
       - name: Create Repo Github 
         uses: ./.github/actions
