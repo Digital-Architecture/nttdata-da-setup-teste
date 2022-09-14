@@ -48,6 +48,9 @@ jobs:
     #needs: 
     #- from-to-json
     steps:
+
+      - uses : actions/checkout@v2.3.2  
+      
       - name: Create Repo Action
         uses : ./.github/actions/create-repo
         with:
