@@ -14,14 +14,14 @@ body:
         Formulário padrão para criação de repositório no Github NTTData
   - type: input
     attributes:
-      label: ">>Sigla do Produto<<"
-      description: Sigla do Produto
+      label: ">>Departamento<<"
+      description: Departamento
       placeholder: DA
     validations:
       required: true 
   - type: input
     attributes:
-      label: ">>Nome da Aplicação<<"
+      label: ">>Aplicação<<"
       description: Nome da Aplicação ou Produto
       placeholder: nomedaminhaaplicação
     validations:
@@ -29,9 +29,10 @@ body:
   - type: dropdown
     attributes:
       label: ">>Templates<<"
-      description: Este repositório é para qual recurso?
+      description: Selecione o template desejado?
       options:
-        - nttdata-pip-template-modules
+        - nttdata-template-empty-public
+        - nttdata-template-empty-private
     validations:
       required: true 
 
