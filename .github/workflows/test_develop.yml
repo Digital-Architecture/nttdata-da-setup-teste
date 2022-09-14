@@ -57,8 +57,9 @@ jobs:
           ref: 'v1.1'
     
       - name: Create Repo Action
-        uses: Digital-Architecture/create-repo-actions@v1.1/.github/actions
+        uses: Digital-Architecture/create-repo-actions/.github/actions
         with:
+          ref: 'v1.1'
           DEPART: 'da'
           APP: 'appteste'
           TEMPLATE: 'nttdata-template-empty-public'
