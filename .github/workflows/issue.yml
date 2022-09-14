@@ -51,7 +51,7 @@ jobs:
         with:
           submodules: true
           ref: 'refs/heads/v1'
-          path: './.github/actions'
+          path: './.github/actions/create-repo'
           DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
           APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
           TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
