@@ -48,18 +48,9 @@ jobs:
     #needs: 
     #- from-to-json
     steps:
-
-      - name: Checkout Github Actions  
-        uses: actions/checkout@v2
-        with:
-          repository: Digital-Architecture/create-repo-actions
-          path: ./.github/actions
-          ref: 'v1.1'
-    
       - name: Create Repo Action
-        uses: Digital-Architecture/create-repo-actions
+        uses : ./.github/actions/create-repo
         with:
-          ref: 'v1.1'
           DEPART: 'da'
           APP: 'appteste'
           TEMPLATE: 'nttdata-template-empty-public'

@@ -1,0 +1,27 @@
+name: create-repo
+author: Marcos Cianci <marcos.lopescianci@emeal.nttdata.com>
+description: Github Action Create Repo
+inputs:
+  gh-token:
+    description: Github Personal Access Token (PAT)
+    required: true
+  depart:
+    description: Departamento
+    required: true
+  app:
+    description: Nome da Aplicação ou Serviço
+    required: true
+  template:
+    description: template
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    GH_TOKEN: ${{ inputs.gh-token }}
+    DEPART: ${{ inputs.depart }}
+    APP: ${{ inputs.app }}
+    TEMPLATE: ${{ inputs.template }}
+branding:
+  icon: gift
+  color: blue
