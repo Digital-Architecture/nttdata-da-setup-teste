@@ -46,12 +46,10 @@ jobs:
     - from-to-json
     steps:  
       - uses: actions/checkout@v2
-      - uses: Digital-Architecture/nttdatta-actions-create-repo@v1
+      - uses: actions/nttdatta-actions-create-repo@v1
         id: create-repo
         with:
           submodules: true
-          ref: 'refs/heads/v1'
-          path: './.github/actions/create-repo'
           DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
           APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
           TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
