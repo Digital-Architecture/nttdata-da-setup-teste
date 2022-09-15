@@ -50,13 +50,13 @@ jobs:
     steps:
 
       - uses : actions/checkout@v2.3.2  
-      
+
       - name: Create Repo Action
         uses : ./.github/actions/create-repo
         with:
-          DEPART: 'da'
-          APP: 'appteste'
-          TEMPLATE: 'nttdata-template-empty-public'
+          DEPART: "da"
+          APP: "appteste"
+          TEMPLATE: "nttdata-template-empty-public"
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 
