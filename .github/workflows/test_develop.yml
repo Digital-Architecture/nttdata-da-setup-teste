@@ -54,10 +54,10 @@ jobs:
       - name: Create Repo Action
         uses : ./.github/actions/create-repo
         with:
-          DEPART: "da"
-          APP: "appteste"
-          TEMPLATE: "nttdata-template-empty-public"
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          depart: "da"
+          app: "appteste"
+          template: "nttdata-template-empty-public"
+          gh_token: ${{ secrets.GH_TOKEN }}
 
 
   #add-error-comment:
