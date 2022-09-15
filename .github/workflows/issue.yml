@@ -42,6 +42,9 @@ jobs:
   create-github-repo:
     name: Github Create Repo
     runs-on: ubuntu-latest
+    outputs:
+      recurso: ${{ steps.create-repo.outputs.recurso }}
+      repo_name: ${{ steps.create-repo.outputs.repo_name }}
     needs: 
     - from-to-json
     steps:
@@ -49,10 +52,11 @@ jobs:
 
       - name: Create Repo Action
         uses: ./.github/actions/create-repo
+        id: create-repo 
         with:
           depart: ${{ fromJson(inputs.payload)['Departamento'] }}
-          app: ${{ fromJson(inputs.payload)['Aplicação'] }}
-          template: ${{ fromJson(inputs.payload)['Template'] }}
+          app: ${{ fromJson(inputs.payload)['Aplicacao'] }}
+          template: ${{ fromJson(inputs.payload)['Templates'] }}
           gh_token: ${{ secrets.GH_TOKEN }}
 
   add-error-comment:
