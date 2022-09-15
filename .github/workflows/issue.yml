@@ -45,23 +45,14 @@ jobs:
     needs: 
     - from-to-json
     steps:
-
-      #- name: Checkout Repo Action 
-      #  uses: actions/checkout@v2.3.2
-      #  with:
-      #    repository: Digital-Architecture/create-repo-actions
-      #    path: ./.github/actions
-      #    ref: 'v1.1'
-      #    submodules: true
-
-      - name: Create Repo 
-        uses: Digital-Architecture/create-repo-actions@v1.1
-        id: create-repo
+      - uses : actions/checkout@v2.3.2  
+      - name: Create Repo Action
+        uses : ./.github/actions/create-repo
         with:
-          DEPART: ${{ fromJson(inputs.payload)['Departamento'] }}
-          APP: ${{ fromJson(inputs.payload)['Aplicação'] }}
-          TEMPLATE: ${{ fromJson(inputs.payload)['Template'] }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          depart: ${{ fromJson(inputs.payload)['Departamento'] }}
+          app: ${{ fromJson(inputs.payload)['Aplicação'] }}
+          template: ${{ fromJson(inputs.payload)['Template'] }}
+          gh_token: ${{ secrets.GH_TOKEN }}
 
   add-error-comment:
     name: Add error comment
