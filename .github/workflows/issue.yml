@@ -45,9 +45,10 @@ jobs:
     needs: 
     - from-to-json
     steps:
-      - uses : actions/checkout@v2.3.2  
+      - uses : actions/checkout@v2.3.2
+
       - name: Create Repo Action
-        uses : ./.github/actions/create-repo
+        uses: ./.github/actions/create-repo
         with:
           depart: ${{ fromJson(inputs.payload)['Departamento'] }}
           app: ${{ fromJson(inputs.payload)['Aplicação'] }}
