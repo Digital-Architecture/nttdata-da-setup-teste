@@ -54,9 +54,9 @@ jobs:
         uses: ./.github/actions/create-repo
         id: create-repo 
         with:
-          depart: ${{ fromJson(inputs.payload)['Departamento'] }}
-          app: ${{ fromJson(inputs.payload)['Aplicacao'] }}
-          template: ${{ fromJson(inputs.payload)['Templates'] }}
+          depart: ${{ fromJson(inputs.payload)["Departamento"] }}
+          app: ${{ fromJson(inputs.payload)["Aplicacao"] }}
+          template: ${{ fromJson(inputs.payload)["Templates"] }}
           gh_token: ${{ secrets.GH_TOKEN }}
 
   add-error-comment:
