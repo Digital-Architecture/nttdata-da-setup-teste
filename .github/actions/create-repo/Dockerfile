@@ -1,6 +1,9 @@
 FROM alpine
 
 ARG GH_TOKEN
+ARG DEPART
+ARG APP
+ARG TEMPLATE
 
 RUN apk update && apk upgrade && \
     apk add curl tar bash git 
