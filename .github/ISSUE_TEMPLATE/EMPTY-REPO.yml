@@ -21,7 +21,7 @@ body:
       required: true 
   - type: input
     attributes:
-      label: ">>Aplicação<<"
+      label: ">>Aplicacao<<"
       description: Nome da Aplicação ou Produto
       placeholder: nomedaminhaaplicação
     validations:
