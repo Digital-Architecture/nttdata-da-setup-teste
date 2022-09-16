@@ -36,6 +36,7 @@ jobs:
       - name: Set outputs
         id: payload
         run: echo ::set-output name=json_var::'${{ steps.parser.outputs.payload }}'
+
       - name: Show output 
         run: echo "${{ toJson(steps.payload.outputs.json_var) }}"
 
@@ -54,9 +55,9 @@ jobs:
         uses: ./.github/actions/create-repo
         id: create-repo 
         with:
-          depart: ${{ fromJson(inputs.payload)[Departamento] }}
-          app: ${{ fromJson(inputs.payload)[Aplicacao] }}
-          template: ${{ fromJson(inputs.payload)[Templates] }}
+          depart: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Departamento'] }}
+          app: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Aplicacao'] }}
+          template: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Templates'] }}
           gh_token: ${{ secrets.GH_TOKEN }}
 
   add-error-comment:
