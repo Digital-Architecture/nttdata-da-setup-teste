@@ -15,7 +15,7 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Acompanhe o setup pelo link: https://github.com/${{github.repsitory}}/actions/runs/${{github.run_id}}
+            Acompanhe o setup pelo link: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
           reactions: '+1'
   
   from-to-json:
