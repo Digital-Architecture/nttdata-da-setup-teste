@@ -85,7 +85,7 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-number: ${{ github.issue.number }}
+          issue-number: ${{ github.event.issue.number }}
           body: |
             Sucesso na criação do repositório. Repositório criado em https://github.com/Digital-Architecture/${{needs.create-github-repo.outputs.repo_name}}
           reactions: '+1'
