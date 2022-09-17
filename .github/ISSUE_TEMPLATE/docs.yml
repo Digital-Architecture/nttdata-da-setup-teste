@@ -1,0 +1,35 @@
+name: "[Docs] Criação do Github Pages DOC"
+description: Criação de repositório para Documentação - Github Pages"
+title: Criação de Repositório Docs
+labels: ["documentation","repositorio"]
+assignees:
+  - ${{github.author}}
+
+body:
+  - type: markdown
+    attributes:
+      value: 
+        Formulário padrão para criação de repositório DOCS no Github NTTData
+  - type: input
+    attributes:
+      label: ">>Departamento<<"
+      description: Departamento
+      placeholder: DA
+    validations:
+      required: true 
+  - type: input
+    attributes:
+      label: ">>Aplicacao<<"
+      description: Nome da Aplicação ou Produto
+      placeholder: nomedaminhaaplicação
+    validations:
+      required: true 
+  - type: dropdown
+    attributes:
+      label: ">>Templates<<"
+      description: Selecione o template desejado?
+      options:
+        - nttdata-template-docs-hugo
+    validations:
+      required: true 
+  
