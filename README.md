@@ -1,2 +1,4 @@
-# nttdata-pip-setup
-Automação para criação de repositórios autônoma e ágil.
+# nttdata-da-setup-teste
+
+
+Somente para testes!!!!!!!!Não utilizar!!!
