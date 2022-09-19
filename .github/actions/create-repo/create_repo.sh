@@ -16,7 +16,7 @@ then
 
 elif [ "$TEMPLATE" == "nttdata-template-docs-hugo" ]
 then
-    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}${APP}.github.io --public
+    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}${APP} --public
 else
     echo "Template invalid!!!!"
 
