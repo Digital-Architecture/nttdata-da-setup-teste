@@ -12,8 +12,8 @@ body:
         Formulário padrão para criação de repositório DOCS no Github NTTData
   - type: input
     attributes:
-      label: ">>Serviço<<"
-      description: Serviço AWS 
+      label: ">>Service<<"
+      description: Service AWS 
       placeholder: ec2
     validations:
       required: true 
