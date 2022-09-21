@@ -17,6 +17,11 @@ then
 elif [ "$TEMPLATE" == "nttdata-template-docs-hugo" ]
 then
     $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}${APP} --public
+
+elif [ "$TEMPLATE" == "nttdata-template-modules-terraform" ]
+then
+    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/terraform-modules-aws-${SERVICE} --public
+
 else
     echo "Template invalid!!!!"
 
