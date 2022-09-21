@@ -1,6 +1,6 @@
-name: "[Terraform Modules AWS] Criação do Terraform Modules AWS"
+name: "[CLOUD AWS] Criação do Terraform Modules AWS"
 description: Criação de repositório para criação Terraform Modules AWS"
-title: Criação de Repositório Terraform Modules AWs
+title: Criação de Repositório Terraform Modules AWS
 labels: ["infra","repositorio"]
 assignees:
   - ${{github.author}}
