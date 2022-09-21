@@ -58,7 +58,8 @@ jobs:
           depart: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Departamento'] }}
           app: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Aplicacao'] }}
           template: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Templates'] }}
-          gh_token: ${{ secrets.GH_TOKEN }}
+          gh-token: ${{ secrets.GH_TOKEN }}
+          service: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Services'] }}
 
   add-error-comment:
     name: Add error comment
