@@ -7,13 +7,16 @@ inputs:
     required: true
   depart:
     description: Departamento
-    required: true
+    required: false
   app:
     description: Nome da Aplicação ou Serviço
-    required: true
+    required: false
   template:
     description: template
-    required: true
+    required: false
+  service:
+    description: Service
+    required: false
 runs:
   using: docker
   image: Dockerfile
@@ -22,6 +25,7 @@ runs:
     DEPART: ${{ inputs.depart }}
     APP: ${{ inputs.app }}
     TEMPLATE: ${{ inputs.template }}
+    SERVICE: ${{ inputs.service }}
 branding:
   icon: gift
   color: blue
