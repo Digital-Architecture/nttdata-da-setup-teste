@@ -7,16 +7,16 @@ inputs:
     required: true
   depart:
     description: Departamento
-    required: false
+    required: true
   app:
     description: Nome da Aplicação ou Serviço
-    required: false
+    required: true
   template:
     description: template
-    required: false
+    required: true
   service:
     description: Service
-    required: false
+    required: true
 runs:
   using: docker
   image: Dockerfile

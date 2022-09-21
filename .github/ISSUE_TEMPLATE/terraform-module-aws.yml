@@ -13,13 +13,13 @@ body:
   - type: input
     attributes:
       label: ">>Service<<"
-      description: Service AWS 
+      description: Digite o serviço da AWS
       placeholder: ec2
     validations:
       required: true 
   - type: dropdown
     attributes:
-      label: ">>Templates<<"
+      label: ">>Template<<"
       description: Selecione o template desejado?
       options:
         - nttdata-template-modules-terraform
