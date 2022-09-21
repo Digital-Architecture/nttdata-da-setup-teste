@@ -12,14 +12,14 @@ body:
         Formulário padrão para criação de repositório Terraform AWS no Github NTTData
   - type: input
     attributes:
-      label: ">>Service<<"
+      label: ">>Services<<"
       description: Digite o serviço da AWS
       placeholder: ec2
     validations:
       required: true 
   - type: dropdown
     attributes:
-      label: ">>Template<<"
+      label: ">>Templates<<"
       description: Selecione o template desejado?
       options:
         - nttdata-template-modules-terraform
