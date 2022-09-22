@@ -59,7 +59,8 @@ jobs:
           app: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Aplicacao'] }}
           template: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Templates'] }}
           gh-token: ${{ secrets.GH_TOKEN }}
-          service: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Services'] }}
+          modulo: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Modulos'] }}
+          projeto: ${{ fromJson(needs.from-to-json.outputs.payload-parsed)['Projeto'] }}
 
   add-error-comment:
     name: Add error comment

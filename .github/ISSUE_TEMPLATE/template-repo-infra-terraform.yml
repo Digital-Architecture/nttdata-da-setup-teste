@@ -1,0 +1,37 @@
+name: "[INFRA] - Criação de Repositório Infra Terraform"
+
+description: Criação de repositório Infraestrutura Terraform!
+title: "Criação de repositório Infraestrutura Terraform"
+labels: ["repositorio","infra"]
+
+assignees:
+ - ${{github.author}}
+
+body:
+  - type: markdown
+    attributes:
+      value: 
+        Formulário padrão para criação de repositório Infra Terraform no Github NTTData
+  - type: input
+    attributes:
+      label: ">>Projeto<<"
+      description: Nome do Projeto
+      placeholder: meuprojeto
+    validations:
+      required: true 
+  - type: input
+    attributes:
+      label: ">>Applicação<<"
+      description: Nome da Aplicação ou Produto
+      placeholder: minhaaplicação
+    validations:
+      required: true 
+  - type: dropdown
+    attributes:
+      label: ">>Templates<<"
+      description: Selecione o template desejado?
+      options:
+        - nttdata-template-infra-terraform
+    validations:
+      required: true 
+
