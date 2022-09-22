@@ -1,6 +1,7 @@
 name: create-repo
 author: Marcos Cianci <marcos.lopescianci@emeal.nttdata.com>
 description: Github Action Create Repo
+
 inputs:
   gh-token:
     description: Github Personal Access Token (PAT)
@@ -17,6 +18,10 @@ inputs:
   Modulo:
     description: Nome do Modulo
     required: true
+  projeto:
+    description: Nome do projeto
+    required: true
+
 runs:
   using: docker
   image: Dockerfile
