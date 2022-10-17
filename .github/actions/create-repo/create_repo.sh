@@ -2,34 +2,21 @@
 
 GITHUB_CLI=$(which gh)
 
-
 # AUTHENTICATE GITHUB
 $GITHUB_CLI auth login
 
-if [ "$TEMPLATE" == "nttdata-template-empty-private" ] 
-then
-    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}-${APP} --private
 
-elif [ "$TEMPLATE" == "nttdata-template-empty-public" ]
-then
-    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}-${APP} --public
+# Create Repo
 
-elif [ "$TEMPLATE" == "nttdata-template-docs-hugo" ]
-then
-    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}${APP} --public
+[ "$TEMPLATE" == "nttdata-template-empty-private" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}-${APP} --private
+[ "$TEMPLATE" == "nttdata-template-empty-public" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}-${APP} --public
 
-elif [ "$TEMPLATE" == "nttdata-template-modules-terraform" ]
-then
-    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/terraform-modules-aws-${MODULO} --public
+[ "$TEMPLATE" == "nttdata-template-docs-hugo" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}${APP} --public
 
-elif [ "$TEMPLATE" == "nttdata-template-infra-terraform" ]
-then
-    $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${PROJETO}-${APP}-infra-terraform --public
+[ "$TEMPLATE" == "nttdata-template-modules-terraform" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/terraform-modules-aws-${MODULO} --public --clone
 
-else
-    echo "Template invalid!!!!"
+[ "$TEMPLATE" == "nttdata-template-infra-terraform" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${PROJETO}-${APP}-infra-terraform --public --clone
 
-fi
 
 
 
