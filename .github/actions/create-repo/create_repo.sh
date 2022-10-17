@@ -13,9 +13,9 @@ $GITHUB_CLI auth login
 
 [ "$TEMPLATE" == "nttdata-template-docs-hugo" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${DEPART}${APP} --public
 
-[ "$TEMPLATE" == "nttdata-template-modules-terraform" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/terraform-modules-aws-${MODULO} --public && $GITHUB_CLI repo sync
+[ "$TEMPLATE" == "nttdata-template-modules-terraform" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/terraform-modules-aws-${MODULO} --public --include-all-branches
 
-[ "$TEMPLATE" == "nttdata-template-infra-terraform" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${PROJETO}-${APP}-infra-terraform --public && $GITHUB_CLI repo sync
+[ "$TEMPLATE" == "nttdata-template-infra-terraform" ] && $GITHUB_CLI repo create --template Digital-Architecture/${TEMPLATE} Digital-Architecture/${PROJETO}-${APP}-infra-terraform --public --include-all-branches
 
 
 
